@@ -35,3 +35,7 @@ if node['hostname'] == 'core'
     action :run
   end
 end
+
+ohai 'update_information' do
+  action :reload
+end
