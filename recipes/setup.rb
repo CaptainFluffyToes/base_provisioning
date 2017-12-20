@@ -21,3 +21,6 @@ if node['platform'] == 'debian'
     end
   end
 end
+
+if node['hostname'] == 'core'
+  
