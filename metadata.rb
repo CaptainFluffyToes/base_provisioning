@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures base_configuration'
 long_description 'Installs/Configures base_configuration'
-version '0.2.5'
+version '0.2.6'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -38,5 +38,6 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/19/2017] - 0.2.3 - Added code for dynamic hostname.
 # [12/19/2017] - 0.2.4 - Added OHAI reload after hostname change.
 # [12/23/2017] - 0.2.5 - Changed hostname to not check if it's 'core' but to check if it's in the right '.solsys.com' format.  Updated jenkinsfile with pollscm.
+# [12/23/2017] - 0.2.6 - Changed the ohai comparision from hostname to machinename. hostname did not include .solsys.com and that meant the name changed all the time. 
 
 depends 'chef-client'

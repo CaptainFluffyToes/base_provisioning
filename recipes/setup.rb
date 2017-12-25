@@ -22,7 +22,7 @@ if node['platform'] == 'debian'
   end
 end
 
-if node['hostname'] !~ /([.]solsys.com)/
+if node['machinename'] !~ /([.]solsys.com)/
   bash 'set_hostname' do
     code <<-EOH
     hostname_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
