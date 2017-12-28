@@ -35,7 +35,3 @@ if node['machinename'] !~ /([.]solsys.com)/
     action :run
   end
 end
-
-ohai 'update_information' do
-  action :reload
-end
