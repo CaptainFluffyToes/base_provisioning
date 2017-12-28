@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures base_configuration'
 long_description 'Installs/Configures base_configuration'
-version '0.2.9'
+version '0.2.10'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -42,5 +42,6 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/28/2017] - 0.2.7 - Removed OHAI information reload.
 # [12/28/2017] - 0.2.8 - Updated /etc/hosts renaming to not look for a specific name.
 # [12/28/2017] - 0.2.9 - Add "" around $hostname for /etc/hosts modification.
+# [12/28/2017] - 0.2.10 - replaced AWK with SED command.
 
 depends 'chef-client'
