@@ -29,7 +29,7 @@ if node['machinename'] !~ /([.]solsys.com)/
     hostname_suffix=solsys.com
     hostname=$hostname_string.$hostname_suffix
     hostnamectl set-hostname $hostname
-    sed -i -e "s/core/$hostname/g" /etc/hosts
+    awk '/127.0.1.1/ {$2=$hostname}1' /etc/hosts
     /etc/init.d/hostname.sh start
     EOH
     action :run
