@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures base_configuration'
 long_description 'Installs/Configures base_configuration'
-version '0.2.11'
+version '0.2.12'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -44,5 +44,6 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/28/2017] - 0.2.9 - Add "" around $hostname for /etc/hosts modification.
 # [12/28/2017] - 0.2.10 - replaced AWK with SED command.
 # [12/28/2017] - 0.2.11 - removed configuration data for chef-client run.
+# [12/30/2017] - 0.2.12 - Changed time to be 6 minutes for testing. 
 
 depends 'chef-client'
