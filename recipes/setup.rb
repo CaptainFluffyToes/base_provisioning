@@ -33,4 +33,25 @@ if node['platform'] == 'debian'
       action :run
     end
   end
+  if (cat /etc/network/interfaces | awk '/iface eth0 inet/{print $4}') == "dhcp"
+    bash 'getFreeIPAddress' do
+      code <<-EOH
+      ipaddress=$(ifconfig | awk 'FNR==2' | awk '/inet/ {print $2}' | tr -d addr:)
+      broadcast=$($ipaddress | sed -e 's/\.[^.]*$//'
+      testaddress=1
+      run=$true
+      while [ $run == $true]; do
+        $result=$(ping $broadcast.$testaddress -c 1)
+        if [[ $result =~ "Destination Host Unreachable" ]]
+        then
+          run=$false
+          newaddress=$broadcast.$testaddress
+        else
+          let testaddress++
+        fi
+      done
+      EOH
+      action :run
+    end
+  end
 end
