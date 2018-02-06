@@ -4,7 +4,7 @@ maintainer_email 'djkhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures base_configuration'
 long_description 'Installs/Configures base_configuration'
-version '0.2.13'
+version '0.2.14'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -46,5 +46,6 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [12/28/2017] - 0.2.11 - removed configuration data for chef-client run.
 # [12/30/2017] - 0.2.12 - Changed time to be 6 minutes for testing.
 # [12/30/2017] - 0.2.13 - Combined naming with if statement that checks for debian.  Removed sudo as installed package.  Updated the splay and interval time back to 900.
+# [02/06/2018] - 0.2.14 - Added script to find the next avialable static ip address.
 
 depends 'chef-client'
