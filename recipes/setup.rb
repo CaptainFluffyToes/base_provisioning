@@ -33,7 +33,13 @@ if node['platform'] == 'debian'
       action :run
     end
   end
-  if (cat /etc/network/interfaces | awk '/iface eth0 inet/{print $4}') == "dhcp"
+  ruby_block 'findFreeIPAddress' do
+    block do
+      node.default['ipaddress']['mode']=`(cat /etc/network/interfaces | awk '/iface eth0 inet/{print $4}')`
+    end
+    action :run
+  end
+  if node['ipaddress']['mode'] =~ /dhcp/
     bash 'getFreeIPAddress' do
       code <<-EOH
       ipaddress=$(ifconfig | awk 'FNR==2' | awk '/inet/ {print $2}' | tr -d addr:)
